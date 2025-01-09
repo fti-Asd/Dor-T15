@@ -1,120 +1,147 @@
-.calendar {
-    margin: 0 auto;
-    width: clamp(320px, 400px, 90%);
-    padding: 1rem;
+.title{
+    text-align: center;
+    margin: 10px 0;
+}
+
+
+.calendar-container {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+    width: 380px;
+    min-height: 425px;
+    text-align: center;
 
-    header {
+    @include media-query(578px){
+        width: 350px;
+        min-height: 390px;
+    }
+
+    @include media-query(360px){
+        width: 263px;
+        min-height: 310px;
+    }
+
+    .header {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        margin-bottom: 20px;
+
+        .prev{
+            border-top: 7px solid #000;
+            border-right: 7px solid#000;;
+            transform: rotate(45deg);
+            border-radius: 3px;
+            width: 12px;
+            height: 12px;
+        }
+
+        .next{
+            border-top: 7px solid #000;
+            border-left: 7px solid #000;
+            transform: rotate(-45deg);
+            border-radius: 3px;
+            width: 12px;
+            height: 12px;
+        }
     }
 
-    nav {
+    .days-of-week {
         display: flex;
-        align-items: center;
-    }
+        margin-bottom: 10px;
+        gap: 10px;
 
-    ul {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
+        @include media-query(360px){
+            gap: 8px;
+        }
 
-        li {
-            width: calc(100% / 7);
-            position: relative;
-            z-index: 2;
+        .weekday{
+            width: 40px;
             aspect-ratio: 1;
             display: flex;
-            align-items: center;
             justify-content: center;
-        }
-    }
+            align-items: center;
+            border-radius: 50%;
+            // background-color: #f5f5f5;
+            // color: #000;
+            font-size: clamp(0.4rem,calc(0.2rem + 2vw), 1.1rem);
 
-    .prev,
-    .next {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-        &::before {
-            content: "";
-            width: 50%;
-            height: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            border-style: solid;
-            border-width: 0.25em 0.25em 0 0;
-            border-color: #ccc;
-
-            &:hover {
-              border-color: #000;
+            @include media-query(578px){
+                width: 35px;
             }
-        }
-    }
 
-    .next{
-        &::before {
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-    }
-
-    .prev{
-        &::before {
-            transform: translate(-50%, -50%) rotate(-135deg);
+            @include media-query(360px){
+                width: 25px;
+            }
         }
     }
 
     .days {
-        font-weight: 600;
-        padding: 0;
-    }
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
 
-    .dates{
-        padding: 0;
+        @include media-query(360px){
+            gap: 8px;
+        }
 
-        li{
+        .day {
+            width: 40px;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: #222;
+            cursor: pointer;
+            font-size: clamp(0.4rem,calc(0.2rem + 2vw), 1.1rem);
 
-            &.today {
-                color: #fff;
-
-                &::before {
-                    content: "";
-                    width: 2rem;
-                    height: 2rem;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: #000;
-                    border-radius: 50%;
-                    z-index: -1;
-                }
+            @include media-query(578px){
+                width: 35px;
             }
 
-            &.inactive {
-                color: #ccc;
+            @include media-query(360px){
+                width: 25px;
+            }
+
+            &:hover {
+                background-color: #d3d3d3;
+            }
+
+            &.no-color{
+                opacity: 0;
+                cursor: auto;
+            }
+
+            &.today{
+                background-color: #c10000;
+                color: white;
+            }
+
+            &.off-day{
+                background-color: #ffe2dc;
             }
         }
     }
-    
 }
 
-.convert-shamsi-miladi{
-    margin: 0 auto;
-    width: clamp(300px, 400px, 90%);
-    padding: 1rem;
+.convertor-container{
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding:15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px $box-shadow;
+    width: 380px;
+    text-align: center;
     margin-top: 10px;
     cursor: pointer;
-    text-align: center;
+
+    @include media-query(578px){
+        width: 350px;
+    }
+
+    @include media-query(360px){
+        width: 263px;
+    }
 }

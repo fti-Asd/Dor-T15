@@ -4,16 +4,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // font-family: "redhat";
+    font-family: "redhat";
 }
 
-
-body,html{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: Poppins, sans-serif;
+body,html {
+    direction: rtl;
     background: linear-gradient(to bottom, #ff5e88, #ff9966);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    @include media-query(360px){
+        height: auto;
+        margin-top: 100px;
+    }
 }
 
 img {
@@ -31,15 +37,10 @@ ol {
     list-style: none;
 }
 
-// h1{
-//     font-size: clamp(1rem,calc(0.5rem + 2vw), 1.5rem);
-// }
-
-h1 {
-    font-weight: 600;
-    text-align: center;
+h1{
+    font-size: clamp(1rem,calc(0.5rem + 2vw), 2.5rem);
     color: #fff;
-    margin-block: 2rem;
+    font-weight: 600;
 }
 
 h3 {
